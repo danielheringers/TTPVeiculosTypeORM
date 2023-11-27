@@ -17,7 +17,7 @@ export class Cars {
     @Column({ type: 'text'})
     model: string;
 
-    @Column({ type: 'integer' })
+    @Column({ type: 'int' })
     year: number;
 
     @Column({ type: 'boolean', default: false })

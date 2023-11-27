@@ -9,8 +9,7 @@ import { carReturnSerializer } from '../serializers/carSerializer';
 export const createCarController = async (req: Request, res: Response): Promise<Response> => {
     try {
         const data = await createCarService(req.body);
-        const serializedData = carReturnSerializer.validate(data)
-        return res.status(201).json(serializedData);
+        return res.status(201).json(data);
     } catch (error: any) {
         console.error("Error in createCarController:", error);
         return res.status(500).json({ error: "Internal Server Error" });

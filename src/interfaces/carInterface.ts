@@ -3,7 +3,7 @@ export interface ICreateCarData {
     color: string;
     brand: string;
     model: string;
-    year: number;
+    year?: number;
   }
   
 export interface ICarReturn {

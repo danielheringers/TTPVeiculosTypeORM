@@ -1,7 +1,7 @@
 
 import express from 'express';
 import { createCarController, deleteCarController, listCarController, recoveryCarController, updateCarController } from '../controllers/carController';
-import { carAlreadyExistMiddleware } from '../middlewares/carMiddlewares';
+import { carAlreadyExistMiddleware } from '../middlewares/middlewares';
 
 export const carRouter = express.Router();
 
@@ -13,6 +13,6 @@ carRouter.get('/:filter', listCarController);
 
 carRouter.get('/:filter?/:filterB?', listCarController);
 
-carRouter.post('/', carAlreadyExistMiddleware, createCarController);
+carRouter.post('', carAlreadyExistMiddleware, createCarController);
 
 carRouter.delete('/:id', deleteCarController);

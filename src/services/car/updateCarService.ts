@@ -1,7 +1,7 @@
 import AppDataSource from '../../data-source';
 import { Cars } from '../../entities/CarsEntity';
 import { NotFoundError } from '../../errors/appError';
-import { IUpdateCarData } from '../../interfaces/carsInterface';
+import { IUpdateCarData } from '../../interfaces/carInterface';
 
 
 

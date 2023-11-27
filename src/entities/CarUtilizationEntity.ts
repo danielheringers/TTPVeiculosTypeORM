@@ -13,14 +13,14 @@ export class CarUtilization {
     @Column({ type: 'timestamp', nullable: true })
     enddate: Date;
 
+    @Column({ name: 'reasonForUse', type: 'text' })
+    reasonforuse: string;
+
     @ManyToOne(() => Drivers, { nullable: false })
-    @JoinColumn({ name: 'driverid' })
+    @JoinColumn({ name: 'driverId' })
     driver: Drivers;
 
     @ManyToOne(() => Cars, { nullable: false })
-    @JoinColumn({ name: 'carid' })
+    @JoinColumn({ name: 'carId' })
     car: Cars;
-
-    @Column({ type: 'text' })
-    reasonforuse: string;
 }
