@@ -1,25 +1,8 @@
-import { Cars } from '../../entities/CarsEntity';
 import { CarCreateError } from '../../errors/appError';
 import { plainToClass } from 'class-transformer';
 import { validateOrReject } from 'class-validator';
-import AppDataSource from '../../data-source';
-
-interface ICreateCarData {
-  licenseplate: string;
-  color: string;
-  brand: string;
-  model: string;
-  year: number;
-}
-
-interface ICarReturn {
-  id: number;
-  licenseplate: string;
-  color: string;
-  brand: string;
-  model: string;
-  year: number;
-}
+import { carRepository } from '../../repositories/carsRepository';
+import { ICarReturn, ICreateCarData } from '../../interfaces/carsInterface';
 
 class CarReturn implements ICarReturn {
     id: number;
@@ -32,7 +15,6 @@ class CarReturn implements ICarReturn {
 
 export const createCarService = async (data: ICreateCarData): Promise<CarReturn> => {
   try {
-    const carRepository = AppDataSource.getRepository(Cars);
     const newCar = carRepository.create({
       licenseplate: data.licenseplate.toLowerCase(),
       color: data.color.toLowerCase(),
